@@ -1,0 +1,20 @@
+{
+  "name": "nodeapp-bootcamp",
+  "version": "1.0.0",
+  "description": "Práctica WEB-API/Node.js/MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarenao/nodeapp-bootCamp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarenao/nodeapp-bootCamp/issues"
+  },
+  "homepage": "https://github.com/jarenao/nodeapp-bootCamp#readme"
+}
