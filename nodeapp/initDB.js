@@ -17,7 +17,7 @@ async function main() {
 		process.exit(0);
 	}   
 
-	// inicializar agentes
+	// inicializar Items
 	await initItem();
 
 	// Desconectar la DB
