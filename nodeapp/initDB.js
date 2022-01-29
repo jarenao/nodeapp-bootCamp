@@ -7,9 +7,9 @@ const readline = require("readline"); // Para hacer preguntas por consola
 
 // Cargar modelos
 const Item = require("./models/Item");
-const { resolve } = require("path");
-const { rejects } = require("assert");
-const { TLSSocket } = require("tls");
+// const { resolve } = require("path");
+// const { rejects } = require("assert");
+// const { TLSSocket } = require("tls");
 
 async function main() {
 	const borrar = await pregunta("¿Estás seguro que quieres borrar la base de datos?");

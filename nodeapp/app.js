@@ -16,12 +16,22 @@ require("./lib/connectMongoose");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+/**
+ * Middlewares
+ */
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+/**
+ * Routes of my API
+ */
+app.use("/api/items", require("./routes/api/items"));
+/**
+ * Routes
+ */
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
