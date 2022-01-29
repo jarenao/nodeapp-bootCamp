@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
-	res.render("index", { title: "NodeApp" });
+	res.locals.items = require("../initDB.items.json");
+	
+	res.render("index", { title: "NodeApp", subtitle: "Welcome to the best advertising site that no one wants ;)" });
 });
 
 // Test
