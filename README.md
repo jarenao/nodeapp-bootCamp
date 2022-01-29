@@ -26,5 +26,10 @@ To initialise the DB to the initial state, you can use the command:
 ```sh
 npm run initDB
 ```
-
 **WARNING** *This will erase all data from the DB and load the initial state.*
+
+## API Methods
+
+The API is accessed in /api
+
+- /api/items
