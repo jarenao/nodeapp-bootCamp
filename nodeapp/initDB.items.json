@@ -1,45 +1,59 @@
 [
 	{
-		"name": "Jarrón",
+		"name": "Mesa",
 		"state": "Se vende",
-		"price": "50",
-		"image": "jarron.jpg",
-		"tags": "lifestyle"
+		"price": "150",
+		"image": "mesa.jpg",
+		"tags": "work"
 	},
 	{
 		"name": "Jarrón",
 		"state": "Se vende",
-		"price": "50",
+		"price": "87",
 		"image": "jarron.jpg",
 		"tags": "lifestyle"
 	},
 	{
-		"name": "Jarrón",
+		"name": "Moto",
 		"state": "Se vende",
-		"price": "50",
-		"image": "jarron.jpg",
+		"price": "452",
+		"image": "moto.jpg",
+		"tags": "motor"
+	},
+	{
+		"name": "SmartPhone",
+		"state": "Se vende",
+		"price": "126",
+		"image": "smartphone.jpg",
+		"tags": "mobile"
+	},
+	{
+		"name": "Portátil",
+		"state": "Se compra",
+		"price": "789",
+		"image": "portatil.jpg",
+		"tags": "work"
+	},
+	{
+		"name": "Camisa",
+		"state": "Se compra",
+		"price": "10",
+		"image": "camisa.jpg",
 		"tags": "lifestyle"
 	},
 	{
-		"name": "Jarrón",
-		"state": "Se vende",
-		"price": "50",
-		"image": "jarron.jpg",
-		"tags": "lifestyle"
+		"name": "Moto náutica",
+		"state": "Se compra",
+		"price": "630",
+		"image": "moto-nautica.jpg",
+		"tags": "motor"
 	},
 	{
-		"name": "Jarrón",
-		"state": "Se vende",
-		"price": "50",
-		"image": "jarron.jpg",
-		"tags": "lifestyle"
-	},
-	{
-		"name": "Jarrón",
-		"state": "Se vende",
-		"price": "50",
-		"image": "jarron.jpg",
-		"tags": "lifestyle"
+		"name": "Ladrillo",
+		"state": "Se compra",
+		"price": "33",
+		"image": "telefono-ladrillo.jpg",
+		"tags": "mobile"
 	}
 ]
 
