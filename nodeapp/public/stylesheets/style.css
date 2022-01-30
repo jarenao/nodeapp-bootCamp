@@ -104,3 +104,10 @@
 .u-section-2 .u-group-5 {min-height: 249px; width: 307px; margin-top: -43px}
 .u-section-2 .u-container-layout-9 {padding-left: 20px; padding-right: 20px}
 .u-section-2 .u-text-15 {margin-left: calc(((100% - 340px) / 2)); margin-right: calc(((100% - 340px) / 2))} }
+
+.nameItem {
+    text-transform: lowercase;
+}
+.nameItem::first-letter {
+    text-transform: uppercase;
+}

@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html style="font-size: 16px">
+<html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta name="keywords" content="<%= title %>" />
-    <meta name="description" content="" />
+    <meta name="description" content="<%= subtitle %>" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/nicepage2-purify.css" />
     <link
-      id="u-theme-google-font"
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
     />
     <link
-      id="u-page-google-font"
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700"
     />
@@ -53,12 +51,12 @@
                 class="u-container-layout u-valign-middle u-container-layout-3"
               >
                 <h4
-                  class="u-custom-font u-font-oswald u-text u-text-palette-1-base u-text-3"
+                  class="u-custom-font u-font-oswald u-text u-text-palette-1-base u-text-3 nameItem"
                 >
                   <%= item.name %>
                 </h4>
                 <h6 class="u-text u-text-4">
-                  <b><%= item.price %>€</b> - <%= item.state %>
+                  <b><%= item.price %>€</b> - <%= item.state === 'venta' ? 'Se Vende' : 'Se Busca' %>
                 </h6>
                 <p class="u-text u-text-default u-text-grey-50 u-text-5">
                   <%= item.tags %>
