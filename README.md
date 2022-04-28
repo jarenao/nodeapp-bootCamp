@@ -4,11 +4,18 @@
 ### To start the application use:
 
 ```sh
-cd nodepop
+git clone
+cd nodeapp
 npm install
 ```
 
 In production:
+
+Copy .env.example to .env and set config values
+
+```sh
+cp .env.example .env
+```
 
 ```sh
 npm start
@@ -49,9 +56,9 @@ Update an object
 - PUT /api/items
 
 Query String
-/api/items?tags=mobile
+- /api/items?tags=mobile
 
-/api/items?state=venta
+- /api/items?state=venta
 
 Pagination
-/api/items/?skip=4&limit=2
+- /api/items/?skip=4&limit=2
