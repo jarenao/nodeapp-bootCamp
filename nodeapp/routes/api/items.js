@@ -7,166 +7,171 @@ const router = express.Router();
 
 // GET /api/items
 router.get("/", async (req, res, next) => {
-	try {
-		//Request with filters
-		const name = req.query.name;
-		const price = req.query.price;
-		const state = req.query.state;
-		const tags = req.query.tags;
+  try {
+    //Request with filters
+    const name = req.query.name;
+    const price = req.query.price;
+    const state = req.query.state;
+    const tags = req.query.tags;
 
-		// Pagination
-		const skip = req.query.limit;
+    // Pagination
+    const skip = req.query.limit;
 
-		// Limits the amount
-		const limit = req.query.limit;
+    // Limits the amount
+    const limit = req.query.limit;
 
-		//Fields to show
-		const select = req.query.select;
+    //Fields to show
+    const select = req.query.select;
 
-		//Field to sort
-		const sort = req.query.sort;
+    //Field to sort
+    const sort = req.query.sort;
 
-		// Obj filtros
-		const filtros = {};
+    console.log(
+      "El usuario que ha hecho esta petición tiene el _id:",
+      req.apiUserId
+    );
 
-		if (name) {
-			filtros.name = name;
-		}
+    // Obj filtros
+    const filtros = {};
 
-		if (price) {
-			filtros.price = price;
-		}
+    if (name) {
+      filtros.name = name;
+    }
 
-		if (state) {
-			filtros.state = state;
-		}
+    if (price) {
+      filtros.price = price;
+    }
 
-		if (tags) {
-			filtros.tags = tags;
-		}
+    if (state) {
+      filtros.state = state;
+    }
 
-		const items = await Item.lista(filtros, skip, limit, select, sort);
-		res.json({ result: items });
-	} catch (err) {
-		next(err);
-	}
+    if (tags) {
+      filtros.tags = tags;
+    }
+
+    const items = await Item.lista(filtros, skip, limit, select, sort);
+    res.json({ result: items });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET /api/items/:name
 router.get("/:name", async (req, res, next) => {
-	try {
-		const name = req.params.name;
-		const item = await Item.find({ name: name });
+  try {
+    const name = req.params.name;
+    const item = await Item.find({ name: name });
 
-		if (!item) {
-			next(createError(404));
-			return;
-		}
-		res.json({ result: item });
-	} catch (err) {
-		next(err);
-	}
+    if (!item) {
+      next(createError(404));
+      return;
+    }
+    res.json({ result: item });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET /api/items/:state
 router.get("/:state", async (req, res, next) => {
-	try {
-		const state = req.params.state;
-		const item = await Item.find({ state: state });
-		console.log(item);
+  try {
+    const state = req.params.state;
+    const item = await Item.find({ state: state });
+    console.log(item);
 
-		if(!item) {
-			next(createError(404));
-			return;
-		}
-		res.json({ result: item });
-	} catch (err) {
-		next(err);
-	}
+    if (!item) {
+      next(createError(404));
+      return;
+    }
+    res.json({ result: item });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET /api/items/:tags
 router.get("/:tags", async (req, res, next) => {
-	try {
-		const tags = req.params.tags;
-		const item = await Item.find({ tags: tags });
+  try {
+    const tags = req.params.tags;
+    const item = await Item.find({ tags: tags });
 
-		if(!item) {
-			next(createError(404));
-			return;
-		}
-		res.json({ result: item });
-	} catch (err) {
-		next(err);
-	}
+    if (!item) {
+      next(createError(404));
+      return;
+    }
+    res.json({ result: item });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET /api/items/:price
 router.get("/:price", async (req, res, next) => {
-	try {
-		const price = req.params.price;
-		const item = await Item.find({ price: price });
+  try {
+    const price = req.params.price;
+    const item = await Item.find({ price: price });
 
-		if(!item) {
-			next(createError(404));
-			return;
-		}
-		res.json({ result: item });
-	} catch (err) {
-		next(err);
-	}
+    if (!item) {
+      next(createError(404));
+      return;
+    }
+    res.json({ result: item });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // POST /api/items
 router.post("/", async (req, res, next) => {
-	try {
-		const itemData = req.body;
+  try {
+    const itemData = req.body;
 
-		// creo un objeto de Item EN MEMORIA
-		const item = new Item(itemData);
-		const itemGuardado = await item.save();
-		res.status(201).json({ result: itemGuardado });
-	} catch (err) {
-		next(err);
-	}
+    // creo un objeto de Item EN MEMORIA
+    const item = new Item(itemData);
+    const itemGuardado = await item.save();
+    res.status(201).json({ result: itemGuardado });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // DELETE /api/items/:id
 router.delete("/:id", async (req, res, next) => {
-	try {
-		const id = req.params.id;
-		await Item.deleteOne({ _id: id });
-		res.json();
-	} catch (err) {
-		next(err);
-	}
+  try {
+    const id = req.params.id;
+    await Item.deleteOne({ _id: id });
+    res.json();
+  } catch (err) {
+    next(err);
+  }
 });
 
 // PUT /api/items:id
 router.put("/:id", async (req, res, next) => {
-	try {
-		const id = req.params.id;
-		const itemData = req.body;
+  try {
+    const id = req.params.id;
+    const itemData = req.body;
 
-		let itemActualizado;
-		try {
-			itemActualizado = await Item.findByIdAndUpdate(id, itemData, {
-				new: true, // esta opción sirve para que nos devuelva el estado final del documento
-			});
-		} catch (err) {
-			next(createError(422, "invalid id"));
-			return;
-		}
+    let itemActualizado;
+    try {
+      itemActualizado = await Item.findByIdAndUpdate(id, itemData, {
+        new: true, // esta opción sirve para que nos devuelva el estado final del documento
+      });
+    } catch (err) {
+      next(createError(422, "invalid id"));
+      return;
+    }
 
-		if (!itemActualizado) {
-			next(createError(404));
-			return;
-		}
+    if (!itemActualizado) {
+      next(createError(404));
+      return;
+    }
 
-		res.json({ result: itemActualizado });
-	} catch (err) {
-		next(err);
-	}
+    res.json({ result: itemActualizado });
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;

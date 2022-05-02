@@ -12,6 +12,10 @@ usuarioSchema.statics.hashPassword = function (passwordObfuscated) {
   return bcrypt.hash(passwordObfuscated, 7);
 };
 
+usuarioSchema.methods.comparePassword = function (passwordObfuscated) {
+  return bcrypt.compare(passwordObfuscated, this.password);
+};
+
 const Usuario = mongoose.model("Usuario", usuarioSchema);
 
 module.exports = Usuario;

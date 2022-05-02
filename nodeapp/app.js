@@ -3,13 +3,15 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
+const jwtAuth = require("./lib/jwtAuth");
 const LoginController = require("./controllers/loginController");
+
+var app = express();
+
+const loginController = new LoginController();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-
-var app = express();
 
 // Connect MongoDb
 require("./lib/connectMongoose");
@@ -30,9 +32,8 @@ app.use(express.static(path.join(__dirname, "public")));
 /**
  * Routes of my API
  */
-app.use("/api/items", require("./routes/api/items"));
-
-const loginController = new LoginController();
+app.post("/api/authenticate", loginController.postJWT);
+app.use("/api/items", jwtAuth, require("./routes/api/items"));
 
 /**
  * Routes
