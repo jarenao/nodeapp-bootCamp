@@ -6,6 +6,8 @@ var logger = require("morgan");
 const jwtAuth = require("./lib/jwtAuth");
 const LoginController = require("./controllers/loginController");
 
+require("dotenv").config();
+
 var app = express();
 
 const loginController = new LoginController();
