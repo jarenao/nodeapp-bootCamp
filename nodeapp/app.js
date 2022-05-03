@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const jwtAuth = require("./lib/jwtAuth");
 const LoginController = require("./controllers/loginController");
+const i18n = require("./lib/i18nConfigure");
 
 require("dotenv").config();
 
@@ -37,6 +38,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.post("/api/authenticate", loginController.postJWT);
 app.use("/api/items", jwtAuth, require("./routes/api/items"));
 
+// i18n
+app.use(i18n.init);
+
 /**
  * Routes
  */
@@ -44,6 +48,8 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.get("/login", loginController.index);
 app.post("/login", loginController.post);
+
+app.use("/change-locale", require("./routes/change-locale"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

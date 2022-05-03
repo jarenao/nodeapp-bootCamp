@@ -3,35 +3,27 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <meta name="keywords" content="<%= title %>" />
-    <meta name="description" content="<%= subtitle %>" />
-    <title><%= title %></title>
+    <meta name="keywords" content="<%= __('NodePop') %>" />
+    <meta name="description" content="<%= __('Welcome to the best advertising site that no one wants') %>" />
+    <title><%= __('NodePop') %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/nicepage2-purify.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" />
   </head>
   <body class="u-body">
-    <section
-      class="u-align-center u-clearfix u-palette-2-light-2 u-valign-top-xs u-section-2"
-      id="carousel_8ebb"
-    >
+    <section class="u-align-center u-clearfix u-palette-2-light-2 u-valign-top-xs u-section-2" id="carousel_8ebb">
       <div class="u-container-style u-expanded-width u-group u-white u-group-1">
         <div class="u-container-layout u-valign-top u-container-layout-1">
-          <h1
-            class="u-align-center u-custom-font u-font-oswald u-text u-text-default u-text-palette-1-base u-text-1"
-          >
-            <%= title %>
-          </h1>
-          <p class="u-align-center u-text u-text-default u-text-2">
-            <%= subtitle %>
-          </p>
+          <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-default u-text-palette-1-base u-text-1"><%= __('NodePop') %></h1>
+          <p class="u-align-center u-text u-text-default u-text-2"><%= __('Welcome to the best advertising site that no one wants') %></p>
+          <div class="locales">
+            <% getLocales().forEach(locale => { %>
+            <a href="/change-locale/<%= locale %>"><%= locale %></a>&nbsp; <% }) %>
+          </div>
         </div>
       </div>
       <div class="u-list u-repeater u-list-1">
@@ -40,32 +32,13 @@
           <div
             class="u-container-layout u-similar-container u-valign-bottom-md u-valign-bottom-sm u-valign-top-lg u-valign-top-xl u-container-layout-2"
           >
-            <img
-              src="./images/<%= item.image %>"
-              class="u-image u-image-default u-image-1"
-            />
-            <div
-              class="u-align-left u-container-style u-group u-white u-group-2"
-            >
-              <div
-                class="u-container-layout u-valign-middle u-container-layout-3"
-              >
-                <h4
-                  class="u-custom-font u-font-oswald u-text u-text-palette-1-base u-text-3 nameItem"
-                >
-                  <%= item.name %>
-                </h4>
-                <h6 class="u-text u-text-4">
-                  <b><%= item.price %>€</b> - <%= item.state === 'venta' ? 'Se Vende' : 'Se Busca' %>
-                </h6>
-                <p class="u-text u-text-default u-text-grey-50 u-text-5">
-                  <%= item.tags %>
-                </p>
-                <a
-                  href="#"
-                  class="u-border-0 u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1"
-                  >Read more</a
-                >
+            <img src="./images/<%= item.image %>" class="u-image u-image-default u-image-1" />
+            <div class="u-align-left u-container-style u-group u-white u-group-2">
+              <div class="u-container-layout u-valign-middle u-container-layout-3">
+                <h4 class="u-custom-font u-font-oswald u-text u-text-palette-1-base u-text-3 nameItem"><%= item.name %></h4>
+                <h6 class="u-text u-text-4"><b><%= item.price %>€</b> - <%= item.state === 'venta' ? 'Se Vende' : 'Se Busca' %></h6>
+                <p class="u-text u-text-default u-text-grey-50 u-text-5"><%= item.tags %></p>
+                <a href="#" class="u-border-0 u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">Read more</a>
               </div>
             </div>
           </div>
