@@ -36,9 +36,9 @@
             <div class="u-align-left u-container-style u-group u-white u-group-2">
               <div class="u-container-layout u-valign-middle u-container-layout-3">
                 <h4 class="u-custom-font u-font-oswald u-text u-text-palette-1-base u-text-3 nameItem"><%= item.name %></h4>
-                <h6 class="u-text u-text-4"><b><%= item.price %>€</b> - <%= item.state === 'venta' ? 'Se Vende' : 'Se Busca' %></h6>
+                <h6 class="u-text u-text-4"><b><%= item.price %>€</b> - <%= item.state === 'venta' ? __('for sale') : __('wanted') %></h6>
                 <p class="u-text u-text-default u-text-grey-50 u-text-5"><%= item.tags %></p>
-                <a href="#" class="u-border-0 u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">Read more</a>
+                <a href="#" class="u-border-0 u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1"><%= __('Read more') %></a>
               </div>
             </div>
           </div>
