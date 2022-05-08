@@ -11,10 +11,6 @@ const readline = require("readline"); // Para hacer preguntas por consola
 // Cargar modelos
 const Item = require("./models/Item");
 const Usuario = require("./models/Usuario.js");
-// import Usuario from "./models/Usuario.js";
-// const { resolve } = require("path");
-// const { rejects } = require("assert");
-// const { TLSSocket } = require("tls");
 
 // Para conectar primero y preguntar después si quiero borrar.
 dbConnection.once("open", () => {
@@ -22,9 +18,7 @@ dbConnection.once("open", () => {
 });
 
 async function main() {
-  const borrar = await pregunta(
-    "¿Estás seguro que quieres borrar la base de datos?"
-  );
+  const borrar = await pregunta("¿Estás seguro que quieres borrar la base de datos?");
   if (!borrar) {
     process.exit(0);
   }

@@ -1,9 +1,10 @@
 "use strict";
 
 const express = require("express");
+const upload = require("../../lib/multerConfig");
 const createError = require("http-errors");
-const Item = require("../../models/Item");
 const router = express.Router();
+const { Item } = require("../../models");
 
 // GET /api/items
 router.get("/", async (req, res, next) => {
@@ -12,6 +13,7 @@ router.get("/", async (req, res, next) => {
     const name = req.query.name;
     const price = req.query.price;
     const state = req.query.state;
+    // const image = req.query.image;
     const tags = req.query.tags;
 
     // Pagination
@@ -26,10 +28,7 @@ router.get("/", async (req, res, next) => {
     //Field to sort
     const sort = req.query.sort;
 
-    console.log(
-      "El usuario que ha hecho esta petición tiene el _id:",
-      req.apiUserId
-    );
+    console.log("El usuario que ha hecho esta petición tiene el _id:", req.apiUserId);
 
     // Obj filtros
     const filtros = {};
@@ -46,12 +45,34 @@ router.get("/", async (req, res, next) => {
       filtros.state = state;
     }
 
+    // if (image) {
+    //   filtros.image = image;
+    // }
+
     if (tags) {
       filtros.tags = tags;
     }
 
     const items = await Item.lista(filtros, skip, limit, select, sort);
     res.json({ result: items });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/", upload.single("image"), async (req, res, next) => {
+  try {
+    const item = new Item(req.body);
+
+    await item.setImage({
+      path: req.file.path,
+      originalName: req.file.originalname,
+    });
+    const saved = await item.save();
+    res.json({
+      ok: true,
+      result: saved,
+    });
   } catch (err) {
     next(err);
   }

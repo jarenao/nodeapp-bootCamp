@@ -9,11 +9,6 @@ router.get("/", function (req, res, next) {
   res.render("index");
 });
 
-// Test
-// router.get("/test", (req, res, next) => {
-// 	res.send("respuesta");
-// });
-
 // /api/items?tags=mobile
 router.get("/tags/:tags(work|lifestyle|motor|mobile)", (req, res, next) => {
   //Parámetros todos obligatorios, busca filtro igual. Pero si le ponemos el interrogante es opcional
