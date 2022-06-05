@@ -1,4 +1,14 @@
-# NODEPOP-BOOTCAMP
+> # DESPLIEGUE EN SERVIDORES
+
+## Práctica desplegar app React | Node.js | MongoDB
+
+#### App React -> http://54.164.76.196
+
+#### App Node | Mongo -> http://ec2-54-164-76-196.compute-1.amazonaws.com/
+
+<br><br>
+
+> # NODEPOP-BOOTCAMP
 
 ## Practice WEB-API | Node.js | MongoDB
 
@@ -53,7 +63,7 @@ Save the token to access the items
 
 List of objects
 
-- /api/items?token={token}
+- GET /api/items?token={token}
 
 Search for an object by
 
